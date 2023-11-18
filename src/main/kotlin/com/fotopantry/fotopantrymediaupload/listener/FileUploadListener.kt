@@ -9,7 +9,7 @@ import java.nio.file.Paths
 @Component
 class FileUploadListener(private val fileProcessingService: FileProcessingService) {
 
-    @RabbitListener(queues = ["\${rabbitmq.queue}"])
+    @RabbitListener(queues = ["\${FP_UPLOAD_QUEUE}"])
     fun receiveMessage(message: String) {
         val path: Path = Paths.get(message)
         fileProcessingService.processFile(path)

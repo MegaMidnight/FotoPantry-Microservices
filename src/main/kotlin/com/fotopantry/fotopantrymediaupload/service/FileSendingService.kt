@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service
 @Service
 class FileSendingService(private val rabbitTemplate: RabbitTemplate) {
 
-    @Value("\${rabbitmq.queue}")
+    @Value("\${FP_UPLOAD_QUEUE}")
     private val queueName: String? = null
 
     fun sendFilePath(filePath: String) {

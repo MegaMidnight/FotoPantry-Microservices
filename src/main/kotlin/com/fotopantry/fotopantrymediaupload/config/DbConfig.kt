@@ -10,30 +10,30 @@ import javax.sql.DataSource
 class DbConfig {
 
     // Database host, port, name, username, and password are injected from k8s env.
-    @Value("\${SQL_SERVER:localhost}")
-    private lateinit var dbHost: String
+    @Value("\${SQL_SERVER}")
+    private var dbHost: String? = null
 
-    @Value("\${SQL_PORT:3306}")
-    private lateinit var dbPort: String
+    @Value("\${SQL_PORT}")
+    private var dbPort: String? = null
 
-    @Value("\${SQL_DATABASE:test}")
-    private lateinit var dbName: String
+    @Value("\${SQL_DATABASE}")
+    private var dbName: String? = null
 
-    @Value("\${SQL_USERNAME:root}")
-    private lateinit var dbUser: String
+    @Value("\${SQL_USERNAME}")
+    private var dbUser: String? = null
 
-    @Value("\${SQL_PASSWORD:password}")
-    private lateinit var dbPassword: String
+    @Value("\${SQL_PASSWORD}")
+    private var dbPassword: String? = null
 
     // SSL properties are injected from k8s env.
-    @Value("\${MYSQL_USE_SSL:false}")
-    private lateinit var useSSL: String
+    @Value("\${MYSQL_USE_SSL}")
+    private var useSSL: String? = null
 
-    @Value("\${MYSQL_CA_CERT:}")
-    private lateinit var caCert: String
+    @Value("\${MYSQL_CA_CERT}")
+    private var caCert: String? = null
 
-    @Value("\${MYSQL_TRUSTSTORE:}")
-    private lateinit var trustStore: String
+    @Value("\${MYSQL_TRUSTSTORE}")
+    private var trustStore: String? = null
 
 
     /**

@@ -8,17 +8,17 @@ import org.springframework.context.annotation.Configuration
 @Configuration
 class RabbitMQConfig {
 
-    @Value("\${RABBITMQ_HOST:localhost}")
-    private lateinit var host: String
+    @Value("\${RABBITMQ_HOST}")
+    private var host: String? = null
 
-    @Value("\${RABBITMQ_PORT:5672}")
+    @Value("\${RABBITMQ_PORT}")
     private var port: Int = 0
 
-    @Value("\${RABBITMQ_DEFAULT_USER:guest}")
-    private lateinit var username: String
+    @Value("\${RABBITMQ_DEFAULT_USER}")
+    private var username: String? = null
 
-    @Value("\${RABBITMQ_DEFAULT_PASS:guest}")
-    private lateinit var password: String
+    @Value("\${RABBITMQ_DEFAULT_PASS}")
+    private var password: String? = null
 
     // ...
 
