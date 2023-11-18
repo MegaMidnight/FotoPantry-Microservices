@@ -10,30 +10,31 @@ import javax.sql.DataSource
 class DbConfig {
 
     // Database host, port, name, username, and password are injected from k8s env.
-    @Value("\${SQL_SERVER}")
-    private val dbHost: String? = null
+    @Value("\${SQL_SERVER:localhost}")
+    private lateinit var dbHost: String
 
-    @Value("\${SQL_PORT}")
-    private val dbPort: String? = null
+    @Value("\${SQL_PORT:3306}")
+    private lateinit var dbPort: String
 
-    @Value("\${SQL_DATABASE}")
-    private val dbName: String? = null
+    @Value("\${SQL_DATABASE:test}")
+    private lateinit var dbName: String
 
-    @Value("\${SQL_USERNAME}")
-    private val dbUser: String? = null
+    @Value("\${SQL_USERNAME:root}")
+    private lateinit var dbUser: String
 
-    @Value("\${SQL_PASSWORD}")
-    private val dbPassword: String? = null
+    @Value("\${SQL_PASSWORD:password}")
+    private lateinit var dbPassword: String
 
     // SSL properties are injected from k8s env.
-    @Value("\${MYSQL_USE_SSL}")
-    private val useSSL: String? = null
+    @Value("\${MYSQL_USE_SSL:false}")
+    private lateinit var useSSL: String
 
-    @Value("\${MYSQL_CA_CERT}")
-    private val caCert: String? = null
+    @Value("\${MYSQL_CA_CERT:}")
+    private lateinit var caCert: String
 
-    @Value("\${MYSQL_TRUSTSTORE}")
-    private val trustStore: String? = null
+    @Value("\${MYSQL_TRUSTSTORE:}")
+    private lateinit var trustStore: String
+
 
     /**
      * Creates and configures a DataSource for the MySQL database.

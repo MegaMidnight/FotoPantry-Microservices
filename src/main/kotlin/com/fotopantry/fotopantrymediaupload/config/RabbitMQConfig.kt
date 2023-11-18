@@ -8,17 +8,20 @@ import org.springframework.context.annotation.Configuration
 @Configuration
 class RabbitMQConfig {
 
-    @Value("\${RABBITMQ_HOST}")
-    private val host: String? = null
+    @Value("\${RABBITMQ_HOST:localhost}")
+    private lateinit var host: String
 
-    @Value("\${RABBITMQ_PORT}")
-    private val port: Int = 0
+    @Value("\${RABBITMQ_PORT:5672}")
+    private var port: Int = 0
 
-    @Value("\${RABBITMQ_DEFAULT_USER}")
-    private val username: String? = null
+    @Value("\${RABBITMQ_DEFAULT_USER:guest}")
+    private lateinit var username: String
 
-    @Value("\${RABBITMQ_DEFAULT_PASS}")
-    private val password: String? = null
+    @Value("\${RABBITMQ_DEFAULT_PASS:guest}")
+    private lateinit var password: String
+
+    // ...
+
 
     /**
      * Creates and configures a CachingConnectionFactory for RabbitMQ.
