@@ -9,7 +9,7 @@ import javax.sql.DataSource
 @Configuration
 class DbConfig {
 
-    // Database host, port, name, username, and password are injected from k8s env.
+    // Database host, port, name, username, and password are injected from k8s secret.
     @Value("\${SQL_SERVER}")
     private var dbHost: String? = null
 
@@ -25,7 +25,7 @@ class DbConfig {
     @Value("\${SQL_PASSWORD}")
     private var dbPassword: String? = null
 
-    // SSL properties are injected from k8s env.
+    // SSL properties are injected from k8s secret.
     @Value("\${MYSQL_USE_SSL}")
     private var useSSL: String? = null
 
