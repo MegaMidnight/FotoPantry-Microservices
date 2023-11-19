@@ -26,7 +26,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development environment running.
+Examples to get going.
 
 1. Clone the repository
 ```git clone https://github.com/MegaMidnight/FotoPantry-Microservices.git```
@@ -74,4 +74,5 @@ spec:
   type: ClusterIP
   ```
 Then apply the yaml file to your k8s cluster
+
 ```kubectl apply -f media-upload.yaml```
